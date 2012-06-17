@@ -1,0 +1,16 @@
+Import('env')
+
+from os.path import dirname
+
+_INCLUDES = [Dir('../lib').abspath, Dir('../src').abspath]
+
+_SOURCES = ['../src/syphonClient.mm', '../src/syphonServer.mm',
+		'../lib/SyphonNameboundClient.m']
+_SOURCES = [Dir(dirname(s)).abspath + '/' + s for s in _SOURCES]
+
+env.Append(CPPPATH = _INCLUDES)
+env.Append(APP_SOURCES = _SOURCES)
+env.Append(FRAMEWORKS = ['Syphon'])
+env.Append(FRAMEWORKPATH = [Dir('../lib').abspath])
+
+Return('env')
