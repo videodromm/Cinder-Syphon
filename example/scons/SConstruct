@@ -1,11 +1,8 @@
-TARGET = 'syphonImpApp'
-APP_SOURCES = ['syphonImpApp.cpp']
-DEBUG = 0
-
 env = Environment()
-env = SConscript('../../scons/SConscript', exports = ['env'])
 
-env.Append(APP_SOURCES = APP_SOURCES)
+env['APP_TARGET'] = 'syphonImpApp'
+env['APP_SOURCES'] = ['syphonImpApp.cpp']
 
-SConscript('../../../../scons/SConscript',
-	exports = ['env', 'TARGET', 'DEBUG'])
+env = SConscript('../../scons/SConscript', exports = 'env')
+
+SConscript('../../../../scons/SConscript', exports = 'env')

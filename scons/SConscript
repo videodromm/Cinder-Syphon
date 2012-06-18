@@ -13,4 +13,10 @@ env.Append(APP_SOURCES = _SOURCES)
 env.Append(FRAMEWORKS = ['Syphon'])
 env.Append(FRAMEWORKPATH = [Dir('../lib').abspath])
 
+# copy Syphon.framework to app
+if 'APP_TARGET' in env:
+	fout = env['APP_TARGET'] + '.app/Contents/Frameworks/Syphon.framework'
+	fin = Dir('../lib/Syphon.framework').abspath
+	Command('#' + fout, fin, Copy(fout, fin))
+
 Return('env')
