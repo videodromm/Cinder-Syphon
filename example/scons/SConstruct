@@ -1,8 +1,0 @@
-env = Environment()
-
-env['APP_TARGET'] = 'syphonImpApp'
-env['APP_SOURCES'] = ['syphonImpApp.cpp']
-
-env = SConscript('../../scons/SConscript', exports = 'env')
-
-SConscript('../../../../scons/SConscript', exports = 'env')
