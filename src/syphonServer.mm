@@ -109,7 +109,7 @@ void syphonServer::publishTexture(ci::gl::TextureRef inputTexture)
 	}
 }
 
-
+/*
 void syphonServer::publishTexture(ci::gl::Texture &inputTexture)
 {
 	if(inputTexture){
@@ -125,4 +125,5 @@ void syphonServer::publishTexture(ci::gl::Texture &inputTexture)
 		ci::app::console()<<"syphonServer is not setup, or texture is not properly backed.  Cannot draw.\n";
 	}
 }
+*/
 

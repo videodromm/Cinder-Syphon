@@ -1,4 +1,5 @@
 #include "cinder/app/AppNative.h"
+#include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 #include "cinderSyphon.h"
 
@@ -107,10 +108,10 @@ void SyphonServerDirectoryApp::draw()
     gl::enableAlphaBlending();
     
     if(dir.isValidIndex(dirIdx))
-        client.draw(Vec2f::zero());
+        client.draw(vec2(0.0f));
     
-    gl::drawStringCentered(serverName + ":" + appName, Vec2f(getWindowCenter().x, 20.f));
-    gl::drawStringCentered("press any key to move through available Syphon servers", Vec2f(getWindowCenter().x, 580.f));
+    gl::drawStringCentered(serverName + ":" + appName, vec2(getWindowCenter().x, 20.f));
+    gl::drawStringCentered("press any key to move through available Syphon servers", vec2(getWindowCenter().x, 580.f));
 }
 
 void SyphonServerDirectoryApp::resize()

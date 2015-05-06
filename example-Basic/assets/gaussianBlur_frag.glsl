@@ -1,7 +1,11 @@
-#version 110
+#version 150
 
 uniform sampler2D tex0;
 uniform vec2 sampleOffset;
+
+in vec2 TexCoord;
+
+out vec4 oColor;
 
 float weights[21];
 
@@ -34,9 +38,9 @@ void main()
 	vec2 baseOffset = -10.0 * sampleOffset;
 	vec2 offset = vec2( 0.0, 0.0 );
 	for( int s = 0; s < 21; ++s ) {
-		sum += texture2D( tex0, gl_TexCoord[0].st + baseOffset + offset ).rgb * weights[s];
+		sum += texture( tex0, TexCoord + baseOffset + offset ).rgb * weights[s];
 		offset += sampleOffset;
 	}
-	gl_FragColor.rgb = sum;
-	gl_FragColor.a = 1.0;
+	oColor.rgb = sum;
+	oColor.a = 1.0;
 }

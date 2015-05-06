@@ -49,15 +49,15 @@ class syphonClient {
     void bind();
     void unbind();
     
-	void draw(ci::Vec2f origin, ci::Vec2f drawSize);
-	void draw(ci::Vec2f origin);
+	void draw(ci::vec2 origin, ci::vec2 drawSize);
+	void draw(ci::vec2 origin);
     void draw(float x, float y, float w, float h);
     void draw(float x, float y);
     //TODO: draw with bounds
     
     int getWidth();
     int getHeight();
-    ci::Vec2i getSize();
+    ci::ivec2 getSize();
     
     std::string& getApplicationName();
     std::string& getServerName();
