@@ -29,6 +29,8 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "cinder/gl/gl.h"
+
 #include "syphonClient.h"
 
 #import <Syphon/Syphon.h>
