@@ -93,7 +93,7 @@ void syphonServer::publishScreen()
 }
 
 
-void syphonServer::publishTexture(ci::gl::TextureRef inputTexture)
+void syphonServer::publishTexture(ci::gl::TextureRef inputTexture, bool flipped)
 {
 	if(inputTexture){
 		NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
@@ -102,7 +102,7 @@ void syphonServer::publishTexture(ci::gl::TextureRef inputTexture)
 		{
 			mSyphon = [[SyphonServer alloc] initWithName:@"Untitled" context:CGLGetCurrentContext() options:nil];
 		}
-		[(SyphonServer *)mSyphon publishFrameTexture:texID textureTarget:GL_TEXTURE_2D imageRegion:NSMakeRect(0, 0, inputTexture->getWidth(), inputTexture->getHeight()) textureDimensions:NSMakeSize(inputTexture->getWidth(), inputTexture->getHeight()) flipped:true];
+		[(SyphonServer *)mSyphon publishFrameTexture:texID textureTarget:GL_TEXTURE_2D imageRegion:NSMakeRect(0, 0, inputTexture->getWidth(), inputTexture->getHeight()) textureDimensions:NSMakeSize(inputTexture->getWidth(), inputTexture->getHeight()) flipped: flipped];
 		[pool drain];
 	} else {
 		ci::app::console()<<"syphonServer is not setup, or texture is not properly backed.  Cannot draw.\n";
