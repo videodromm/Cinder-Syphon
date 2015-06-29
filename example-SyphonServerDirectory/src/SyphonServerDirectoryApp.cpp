@@ -1,4 +1,4 @@
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 #include "cinderSyphon.h"
@@ -7,9 +7,9 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class SyphonServerDirectoryApp : public AppNative {
+class SyphonServerDirectoryApp : public App {
 public:
-	void prepareSettings( Settings *settings );
+	static void prepareSettings( Settings *settings );
     void setup();
     void quit();
 
@@ -190,4 +190,4 @@ void SyphonServerDirectoryApp::mouseWheel( MouseEvent event )
 }
 
 // This line tells Cinder to actually create the application
-CINDER_APP_BASIC( SyphonServerDirectoryApp, RendererGl )
+CINDER_APP( SyphonServerDirectoryApp, RendererGl, SyphonServerDirectoryApp::prepareSettings )

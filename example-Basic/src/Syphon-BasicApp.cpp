@@ -29,7 +29,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/ImageIo.h"
 #include "cinder/gl/Texture.h"
@@ -46,9 +46,9 @@ using namespace std;
 #define WIDTH 512
 #define HEIGHT 512
 
-class SyphonBasicApp : public AppNative {
+class SyphonBasicApp : public App {
 public:
-	void prepareSettings( Settings *settings );
+	static void prepareSettings( Settings *settings );
 	void keyDown( KeyEvent event );
 	void mouseDown( MouseEvent event );
 	void mouseUp( MouseEvent event );
@@ -162,4 +162,4 @@ void SyphonBasicApp::mouseDrag( MouseEvent event )
 	//
 }
 
-CINDER_APP_NATIVE( SyphonBasicApp, RendererGl )
+CINDER_APP( SyphonBasicApp, RendererGl, SyphonBasicApp::prepareSettings )
