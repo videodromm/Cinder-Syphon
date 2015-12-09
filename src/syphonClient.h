@@ -61,6 +61,9 @@ class syphonClient {
     
     std::string& getApplicationName();
     std::string& getServerName();
+
+	bool getIsSetup()  { return bSetup; }
+	ci::gl::TextureRef getTextureRef() { return mTex; }
     
 protected:
 
