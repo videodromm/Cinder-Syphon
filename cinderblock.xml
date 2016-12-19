@@ -4,14 +4,15 @@
     name="Syphon"
     id="info.v002.syphon"
     git="https://github.com/astellato/Cinder-Syphon.git"
-    author="Anthony Stellato"
-    summary="An implementation of the Syphon framework for Cinder"
-    version="Public Beta 2"
+    author="Anthony Stellato - Benjamin Bojko - Reza Ali - Bruce Lane"
+    summary="Syphon Implementation for Cinder 0.9.0+"
+    version="Public Beta 3"
     url="https://github.com/astellato/Cinder-Syphon"
     library="http://syphon.v002.info"
     >
     <supports os="macosx" />
-    <headerPattern>src/*.h</headerPattern>
+	<includePath>include</includePath>
+    <headerPattern>include/*.h</headerPattern>
     <sourcePattern>src/*.mm</sourcePattern>
     <header>lib/SyphonNameboundClient.h</header>
     <source>lib/SyphonNameboundClient.m</source>
@@ -21,4 +22,5 @@
         <frameworkPath>lib/</frameworkPath>
     </platform>
 </block>
+<template>templates/Syphon/template.xml</template>
 </cinder>

@@ -6,8 +6,10 @@
 //
 //
 
-#include "syphonServerDirectory.h"
 #import <Syphon/Syphon.h>
+
+#include "syphonServerDirectory.h"
+#include "cinder/app/App.h"
 
 // CFNotificationCallback implementation
 

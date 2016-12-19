@@ -1,7 +1,6 @@
-===========================
-Cinder-Syphon - An implementation of the Syphon framework for Cinder
-===========================
+# Cinder-Syphon
 
+An implementation of the Syphon framework for Cinder
 Anatomy:
 
 example-Basic - contains a simple Syphon example
@@ -15,7 +14,7 @@ Syphon Client - Receive frames from a Syphon server
 Syphon Server - Publish frames to Syphon
 Syphon Server Directory - Browse available Syphon servers
 
-Requires Mac OS X 10.7+ and Cinder 0.8.5
+Requires Mac OS X 10.7+ and Cinder 0.9.0+
 
 To add Syphon to your project:
 

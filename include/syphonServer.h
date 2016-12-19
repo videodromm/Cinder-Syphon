@@ -1,9 +1,9 @@
 /*
- syphonClient.h
+ syphonServer.h
  Cinder Syphon Implementation
  
  Created by astellato on 2/6/11
- 
+   
  Copyright 2011 astellato, bangnoise (Tom Butterworth) & vade (Anton Marini).
  All rights reserved.
  
@@ -28,46 +28,23 @@
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+#pragma once
 
-#include "cinder/app/AppBasic.h"
+#include "cinder/app/App.h"
 #include "cinder/gl/Texture.h"
-#include "syphonServerDirectory.h"
 
-class syphonClient {
+class syphonServer {
 	public:
-	syphonClient();
-	~syphonClient();
+	syphonServer();
+	~syphonServer();
+	void setName (std::string n);
+	std::string getName();
+	void publishScreen();
+    void publishTexture(ci::gl::TextureRef inputTexture, bool flipped = true);
+    void publishTexture(ci::gl::Texture &inputTexture);
 	
-	void setup();
-	
-    void set(syphonServerDescription _server);
-    void set(std::string _serverName, std::string _appName);
-    
-	void setApplicationName(std::string _appName);
-    void setServerName(std::string _serverName);
-	
-    void bind();
-    void unbind();
-    
-	void draw(ci::Vec2f origin, ci::Vec2f drawSize);
-	void draw(ci::Vec2f origin);
-    void draw(float x, float y, float w, float h);
-    void draw(float x, float y);
-    //TODO: draw with bounds
-    
-    int getWidth();
-    int getHeight();
-    ci::Vec2i getSize();
-    
-    std::string& getApplicationName();
-    std::string& getServerName();
     
 protected:
+	void *mSyphon;
 
-	void* mClient;
-    void* latestImage;
-	ci::gl::TextureRef mTex;
-	int width, height;
-	bool bSetup;
-	std::string appName, serverName;
 };

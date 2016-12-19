@@ -1,4 +1,4 @@
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 #include "cinderSyphon.h"
 
@@ -6,9 +6,8 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class SyphonServerDirectoryApp : public AppNative {
+class SyphonServerDirectoryApp : public App {
 public:
-	void prepareSettings( Settings *settings );
     void setup();
     void quit();
 
@@ -36,14 +35,10 @@ public:
 	
 };
 
-void SyphonServerDirectoryApp::prepareSettings( Settings *settings )
-{
-	settings->setWindowSize(800, 600);
-    settings->setFrameRate(60.f);
-}
-
 void SyphonServerDirectoryApp::setup()
 {
+    setWindowSize(800, 600);
+    setFrameRate(60.f);
     dir.getServerAnnouncedSignal()->connect(bind(&SyphonServerDirectoryApp::serverAnnounced, this, std::placeholders::_1));
     dir.getServerRetiredSignal()->connect(bind(&SyphonServerDirectoryApp::serverRetired, this, std::placeholders::_1));
     
@@ -158,9 +153,7 @@ void SyphonServerDirectoryApp::keyDown( KeyEvent event )
 
 void SyphonServerDirectoryApp::keyUp( KeyEvent event )
 {
-    
-    
-    
+      
 }
 
 void SyphonServerDirectoryApp::mouseDown( MouseEvent event )
@@ -189,4 +182,4 @@ void SyphonServerDirectoryApp::mouseWheel( MouseEvent event )
 }
 
 // This line tells Cinder to actually create the application
-CINDER_APP_BASIC( SyphonServerDirectoryApp, RendererGl )
+CINDER_APP( SyphonServerDirectoryApp, RendererGl )
