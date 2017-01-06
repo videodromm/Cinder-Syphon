@@ -30,6 +30,7 @@
  */
 
 #include "cinder/app/App.h"
+#include "cinder/app/RendererGl.h"
 #include "cinder/ImageIo.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/GlslProg.h"
@@ -47,6 +48,7 @@ using namespace std;
 
 class SyphonBasicApp : public App {
 public:
+	static void prepareSettings( Settings *settings );
 	void keyDown( KeyEvent event );
 	void mouseDown( MouseEvent event );
 	void mouseUp( MouseEvent event );
@@ -113,19 +115,21 @@ void SyphonBasicApp::draw()
 	gl::clear(Color::white());
     gl::color(ColorA(1.f, 1.f, 1.f, 1.f));
 	
-    mShader->bind();
-    mShader->uniform( "tex0", 0 );
-    mShader->uniform( "sampleOffset", Vec2f( cos( mAngle ), sin( mAngle ) ) * ( 3.0f / getWindowWidth() ) );
-    gl::draw(mLogo, Vec2f::zero());
-    mShader->unbind();
+	{
+		gl::ScopedGlslProg glsl( mShader );
+		gl::ScopedTextureBind tex( mLogo );
+		mShader->uniform( "tex0", 0 );
+		mShader->uniform( "sampleOffset", vec2( cos( mAngle ), sin( mAngle ) ) * ( 3.0f / getWindowWidth() ) );
+		gl::drawSolidRect( mLogo->getBounds() );
+	}
     
-    mClientSyphon.draw(Vec2f(16.f, 64.f)); //draw our client image
+    mClientSyphon.draw(vec2(16.f, 64.f)); //draw our client image
     
 	mScreenSyphon.publishScreen(); //publish the screen's output
 	mTextureSyphon.publishTexture(mLogo); //publish our texture without shader
 	
 	//anything that we draw after here will not be published
-    gl::drawStringCentered("This text will not be published to Syphon.", Vec2f(getWindowCenter().x, 20.f), ColorA::black());
+    gl::drawStringCentered("This text will not be published to Syphon.", vec2(getWindowCenter().x, 20.f), ColorA::black());
 	
 }
 
@@ -154,4 +158,4 @@ void SyphonBasicApp::mouseDrag( MouseEvent event )
 	//
 }
 
-CINDER_APP( SyphonBasicApp, RendererGl )
+CINDER_APP( SyphonBasicApp, RendererGl, SyphonBasicApp::prepareSettings )

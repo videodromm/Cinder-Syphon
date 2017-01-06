@@ -27,4 +27,16 @@
 *.out
 *.app
 
-*.DS_Store
+# from naychrist-glNext
+.DS_Store
+*.app
+
+*.pdb
+*.exe
+
+.sconsign.dblite
+*.sw[a-z]
+
+Syphon-BasicApp
+SyphonServerDirectoryApp
+
