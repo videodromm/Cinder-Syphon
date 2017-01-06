@@ -9,7 +9,7 @@
 #pragma once
 
 #include "cinder/Cinder.h"
-#include <boost/signals2.hpp>
+#include "cinder/Signals.h"
 #include <algorithm>
 
 class syphonServerDirectory;
@@ -31,9 +31,10 @@ public:
     std::string serverName, appName;
 };
 
-typedef boost::signals2::signal<void( std::vector<syphonServerDescription> )> SyphonServerAnnouncedSignal;
-typedef boost::signals2::signal<void( std::vector<syphonServerDescription> )> SyphonServerUpdatedSignal;
-typedef boost::signals2::signal<void( std::vector<syphonServerDescription> )> SyphonServerRetiredSignal;
+
+typedef cinder::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerAnnouncedSignal;
+typedef cinder::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerUpdatedSignal;
+typedef cinder::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerRetiredSignal;
 
 class syphonServerDirectory {
 public:
