@@ -38,6 +38,11 @@
 
 syphonClient::syphonClient()
 {
+	// mClient must start as nil: the destructor releases it, and a client that was never setup()
+	// (e.g. every VDFboShader not in Syphon mode) used to release a garbage pointer (EXC_BAD_ACCESS)
+	mClient = nil;
+	latestImage = nil;
+	width = height = 0;
 	bSetup = false;
 }
 
