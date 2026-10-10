@@ -3,16 +3,15 @@
 <block
     name="Syphon"
     id="info.v002.syphon"
-    git="https://github.com/astellato/Cinder-Syphon.git"
+    git="https://github.com/videodromm/Cinder-Syphon.git"
     author="Anthony Stellato - Benjamin Bojko - Reza Ali - Bruce Lane"
-    summary="Syphon Implementation for Cinder 0.9.0+"
-    version="Public Beta 3"
-    url="https://github.com/astellato/Cinder-Syphon"
+    summary="An implementation of the Syphon framework for Cinder (videodromm fork: boost removed, uses cinder::signals)"
+    version="videodromm fork"
+    url="https://github.com/videodromm/Cinder-Syphon"
     library="http://syphon.v002.info"
     >
     <supports os="macosx" />
-	<includePath>include</includePath>
-    <headerPattern>include/*.h</headerPattern>
+    <headerPattern>src/*.h</headerPattern>
     <sourcePattern>src/*.mm</sourcePattern>
     <header>lib/SyphonNameboundClient.h</header>
     <source>lib/SyphonNameboundClient.m</source>

@@ -37,10 +37,14 @@ public:
 	
 };
 
+void SyphonServerDirectoryApp::prepareSettings( Settings *settings )
+{
+	settings->setWindowSize(800, 600);
+    settings->setFrameRate(60.f);
+}
+
 void SyphonServerDirectoryApp::setup()
 {
-    setWindowSize(800, 600);
-    setFrameRate(60.f);
     dir.getServerAnnouncedSignal()->connect(bind(&SyphonServerDirectoryApp::serverAnnounced, this, std::placeholders::_1));
     dir.getServerRetiredSignal()->connect(bind(&SyphonServerDirectoryApp::serverRetired, this, std::placeholders::_1));
     
@@ -155,7 +159,9 @@ void SyphonServerDirectoryApp::keyDown( KeyEvent event )
 
 void SyphonServerDirectoryApp::keyUp( KeyEvent event )
 {
-      
+    
+    
+    
 }
 
 void SyphonServerDirectoryApp::mouseDown( MouseEvent event )

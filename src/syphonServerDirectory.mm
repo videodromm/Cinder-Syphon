@@ -85,7 +85,7 @@ void syphonServerDirectory::refresh(bool isAnnounce){
     }
     
     if(isAnnounce){
-		mAnnouncedSignal.emit(eventArgs);
+        mAnnouncedSignal.emit(eventArgs);
     } else {
         mRetiredSignal.emit(eventArgs);
     }

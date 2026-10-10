@@ -68,10 +68,14 @@ public:
 	syphonClient mClientSyphon; //our syphon client
 };
 
+void SyphonBasicApp::prepareSettings( Settings *settings )
+{
+	settings->setWindowSize(WIDTH,HEIGHT);
+	settings->setFrameRate(60.f);
+}
+
 void SyphonBasicApp::setup()
 {
-	setWindowSize(WIDTH,HEIGHT);
-	setFrameRate(60.f);
 	try {
 		mLogo = gl::Texture::create( loadImage( loadAsset("cinder_logo_alpha.png") ) );
 	}

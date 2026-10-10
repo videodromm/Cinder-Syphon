@@ -65,6 +65,10 @@ class syphonClient {
 
 	bool getIsSetup()  { return bSetup; }
 	ci::gl::TextureRef getTextureRef() { return mTex; }
+	// the raw received texture (GL_TEXTURE_RECTANGLE_ARB, non-normalized UVs) - most callers
+	// should use draw() instead; this is for callers that need to blit it into a normal
+	// GL_TEXTURE_2D themselves (e.g. to feed a pipeline built around sampler2D/normalized UVs)
+	ci::gl::TextureRef getTexture() { return mTex; }
     
 protected:
 

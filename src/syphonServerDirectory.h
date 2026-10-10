@@ -11,6 +11,7 @@
 #include "cinder/Cinder.h"
 #include "cinder/Signals.h"
 #include <algorithm>
+#include <string>
 
 class syphonServerDirectory;
 
@@ -31,10 +32,9 @@ public:
     std::string serverName, appName;
 };
 
-
-typedef cinder::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerAnnouncedSignal;
-typedef cinder::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerUpdatedSignal;
-typedef cinder::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerRetiredSignal;
+typedef ci::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerAnnouncedSignal;
+typedef ci::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerUpdatedSignal;
+typedef ci::signals::Signal<void( std::vector<syphonServerDescription> )> SyphonServerRetiredSignal;
 
 class syphonServerDirectory {
 public:
